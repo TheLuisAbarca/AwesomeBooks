@@ -20,7 +20,7 @@ function book(title, author, counter) {
         if(i === cnt){
            return `<h2>${book.title}</h2>
         <p>${book.author}</p>
-        <button id="#removeButton${cnt}" onClick=RemoveButton("${cnt}") type="submit">Remove</button>`; 
+        <button id="#removeButton${cnt}" onClick=RemoveButton(${i}) type="submit">Remove</button>`; 
         }
     });
     document.querySelector("#bookList").appendChild(bookElement);
@@ -53,16 +53,17 @@ function AddButton() {
   counter += 1;
 }
 
-function RemoveButton(cnt) {
+function RemoveButton(index) {
   //   const removeButton = document.querySelector(`#removeButton${this.counter}`);
   //   console.log(removeButton);
   //   removeButton.addEventListener("click", () => {
   //     document.querySelector(`#bookList li:nth-child(${this.counter})`).remove();
   //     counter -= 1;
   //   });
-books = books.filter(function (item) {
-  return item.cnt.toString() !== cnt;
-});
+// books = books.filter(function (item) {
+//   return item.cnt.toString() !== cnt;
+// });
+books.splice(index, 1);
 }
 
 addButton.addEventListener("click", AddButton);
