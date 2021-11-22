@@ -12,10 +12,19 @@ function book(title, author, counter) {
 
   this.addBook = (cnt) => {
     const bookElement = document.createElement("li");
-    bookElement.innerHTML = `<h2>${this.title}</h2>
-        <p>${this.author}</p>
-        <button id="#removeButton${cnt}" onClick=RemoveButton("${cnt}") type="submit">Remove</button>`;
+    // bookElement.innerHTML = `<h2>${this.title}</h2>
+    //     <p>${this.author}</p>
+    //     <button id="#removeButton${cnt}" onClick=RemoveButton("${cnt}") type="submit">Remove</button>`;
+    
+    bookElement.innerHTML = books.map((book, i) => {
+        if(i === cnt){
+           return `<h2>${book.title}</h2>
+        <p>${book.author}</p>
+        <button id="#removeButton${cnt}" onClick=RemoveButton("${cnt}") type="submit">Remove</button>`; 
+        }
+    });
     document.querySelector("#bookList").appendChild(bookElement);
+    console.log(books);
   };
 
   this.removeBook = () => {
@@ -39,8 +48,8 @@ function book(title, author, counter) {
 
 function AddButton() {
   let genericbook = new book(titleElement.value, authorElement.value, counter);
-  genericbook.addBook(counter);
   books.push(genericbook);
+  genericbook.addBook(counter);
   counter += 1;
 }
 
