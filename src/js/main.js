@@ -1,74 +1,55 @@
 const formElement = document.querySelector("form");
 const titleElement = document.querySelector('input[name="title2Add"');
 const authorElement = document.querySelector('input[name="author2Add"');
-const addButton = document.querySelector("#addButton");
+const bookList = document.querySelector("#bookList");
 let books = [];
-let counter = 0;
 
-function book(title, author, counter) {
+function book(title, author) {
   this.title = title;
   this.author = author;
-  this.cnt = counter;
+  this.cnt = bookList.childElementCount;
 
-  this.addBook = (cnt) => {
+  this.addBook = (title, author) => {
     const bookElement = document.createElement("li");
-    // bookElement.innerHTML = `<h2>${this.title}</h2>
-    //     <p>${this.author}</p>
-    //     <button id="#removeButton${cnt}" onClick=RemoveButton("${cnt}") type="submit">Remove</button>`;
-    
-    bookElement.innerHTML = books.map((book, i) => {
-        if(i === cnt){
-           return `<h2>${book.title}</h2>
-        <p>${book.author}</p>
-        <button id="#removeButton${cnt}" onClick=RemoveButton(${i}) type="submit">Remove</button>`; 
-        }
-    });
+    bookElement.setAttribute("id", `book-${this.cnt}`);
+    bookElement.innerHTML = ` <h2>${title}</h2>
+                              <p>${author}</p>
+                              <button onClick=RemoveButton("${this.cnt}") type="submit">Remove</button>`;
     document.querySelector("#bookList").appendChild(bookElement);
-    console.log(books);
-  };
-
-  this.removeBook = () => {
-    const removeButton = document.querySelector(`#removeButton${this.counter}`);
-    removeButton.addEventListener("click", () => {
-      document
-        .querySelector(`#bookList li:nth-child(${this.counter})`)
-        .remove();
-      // counter -= 1;
-    });
-  };
-
-  this.listBooks = () => {
-    const bookList = document.querySelector("#bookList");
-    bookList.innerHTML = "";
-    books.forEach((book) => {
-      book.addBook();
-    });
   };
 }
 
 function AddButton() {
-  let genericbook = new book(titleElement.value, authorElement.value, counter);
+  let genericbook = new book(titleElement.value, authorElement.value);
   books.push(genericbook);
-  genericbook.addBook(counter);
-  counter += 1;
+  console.log(books);
+  genericbook.addBook(titleElement.value, authorElement.value);
+  localStorage.setItem("books", JSON.stringify(books));
 }
 
 function RemoveButton(index) {
-  //   const removeButton = document.querySelector(`#removeButton${this.counter}`);
-  //   console.log(removeButton);
-  //   removeButton.addEventListener("click", () => {
-  //     document.querySelector(`#bookList li:nth-child(${this.counter})`).remove();
-  //     counter -= 1;
-  //   });
-// books = books.filter(function (item) {
-//   return item.cnt.toString() !== cnt;
-// });
-books.splice(index, 1);
+  console.log(index);
+  const bookElement = document.querySelector(`#book-${index}`);
+  bookList.removeChild(bookElement);
+  books.splice(index, 1);
+  localStorage.setItem("books", JSON.stringify(books));
+  console.log(books);
 }
 
-addButton.addEventListener("click", AddButton);
+function listBooks() {
+  const bookList = document.querySelector("#bookList");
+  books = JSON.parse(localStorage.getItem("books"));
+  if (!books) {
+    books = [];
+  }
+  bookList.innerHTML = "";
+  console.log(books);
+  let genericbook = new book(titleElement.value, authorElement.value);
+  books.forEach((book) => {
+    genericbook.addBook(book.title, book.author);
+  });
+};
 
 document.addEventListener("DOMContentLoaded", () => {
-  const genericbook = new book();
-  genericbook.listBooks();
+  listBooks();
 });
