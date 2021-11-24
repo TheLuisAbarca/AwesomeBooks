@@ -1,3 +1,7 @@
 body {
   background: white;
 }
+
+td.align-middle {
+  text-align: right !important;
+}

@@ -70,10 +70,11 @@ class Book {
       document.querySelector('#bookList').innerHTML = '';
     } else {
       this.data.map((e, i) => {
-        bookDisplay += `<h2>${this.data[i].title}</h2>
-                              <p>${this.data[i].author}</p>
-                              <button class="select">Remove</button>
-                              `;
+        bookDisplay += `<tr>
+                        <th scope="row">${i+1}</th>
+                          <td >"${this.data[i].title}" by ${this.data[i].author}</td>
+                          <td class="text-right align-middle"><button class="select">Remove</button></td>
+                        </tr>`;
 
         document.querySelector('#bookList').innerHTML = bookDisplay;
 
