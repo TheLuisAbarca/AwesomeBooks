@@ -87,10 +87,19 @@
 class Book {
   constructor(title, author) {
     this.title = title;
-    this.author = aut;
-    console.log(this.data);
-    hor;
+    this.author = author;
   }
+
+  static storeBooks(books) {
+    return localStorage.setItem("books", books);
+  }
+
+  static getBooks() {
+    let books = JSON.parse(localStorage.getItem("books"));
+    return !books ? (books = []) : books;
+  }
+
+  static data = this.getBooks();
 
   static addBookMethod() {
     const title = document.querySelector("#title").value;
@@ -98,35 +107,51 @@ class Book {
     return this.addBook(title, author);
   }
 
-  static data = [];
-
   static addBook(title, author) {
-    Book.data.push({
+    this.data.push({
       title: title,
       author: author,
     });
+    this.storeBooks(JSON.stringify(this.data));
+    document.querySelector("#author").value = "";
+    document.querySelector("#title").value = "";
     return this.displayBook();
   }
 
   static removeBook(index) {
-    let newBooks = this.data.splice(index, 1);
-    console.log(this.data);
-    return this.data;
+    this.data = this.data.filter((e, i) => {
+      return i !== index;
+    });
+    this.storeBooks(JSON.stringify(this.data));
+    return this.displayBook();
   }
 
   static displayBook() {
     let bookDisplay = "";
-
-    this.data.map((e, i) => {
-      bookDisplay += `<h2>${this.data[i].title}</h2>
+    if (this.data.length === 0) {
+      document.querySelector("#bookList").innerHTML = "";
+    } else {
+      this.data.map((e, i) => {
+        bookDisplay += `<h2>${this.data[i].title}</h2>
                               <p>${this.data[i].author}</p>
-                              <button id="rg" type="button">Remove</button>
+                              <button class="select">Remove</button>
                               `;
-    });
-    
 
-    return (document.querySelector("#bookList").innerHTML = bookDisplay);
+        document.querySelector("#bookList").innerHTML = bookDisplay;
+
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach((e, i) => {
+          buttons[i].addEventListener(
+            "click",
+            (event) => {
+              Book.removeBook(Book.removeBook(this.data.indexOf(this.data[i])));
+              event.preventDefault();
+            },
+            false
+          );
+        });
+      });
+    }
   }
 }
-
-Book.displayBook;
+Book.displayBook();
