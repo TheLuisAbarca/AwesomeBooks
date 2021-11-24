@@ -83,7 +83,7 @@
 //   /*const newBook = new Book(titleElement.value, authorElement.value, bookList.childElementCount);
 //   newBook.addBook(titleElement.value, authorElement.value, bookList.childElementCount);*/
 // });
-
+const bookList = document.querySelector("#bookList");
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -124,6 +124,27 @@ class Book {
     });
     this.storeBooks(JSON.stringify(this.data));
     return this.displayBook();
+  }
+
+  static domCreateBook(title, author, index) {
+    const eachBook = document.createDocumentFragment();
+    const eachList = document.createElement('li');
+    const eachTitle = document.createElement('h2');
+    const eachAuthor = document.createElement('p');
+    const removeBtn = document.createElement('button');
+
+    eachBook.appendChild(eachList);
+    eachList.id = `book-${index}`;
+    eachList.appendChild(eachTitle);
+    eachList.appendChild(eachAuthor);
+    eachList.appendChild(removeBtn);
+    bookList.appendChild(eachBook);
+
+    eachTitle.textContent = title;
+    eachAuthor.textContent = author;
+    removeBtn.textContent = 'Remove';
+    removeBtn.className = 'rm-btn';
+    removeBtn.addEventListener('click', () => this.removeBook(index));
   }
 
   static displayBook() {
