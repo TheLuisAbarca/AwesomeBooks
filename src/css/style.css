@@ -4,12 +4,40 @@ body {
 }
 
 main {
-  background: url('../images/banner.webp') center / cover;
+  /*background: url('../images/banner.webp') center / cover;
   content: '';
   position: absolute;
   left: 0; right: 0; top: 0; bottom: 0;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.8;*/
+  background: url('../images/banner.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  opacity: 0.6;
+  min-height: 80vh;
+}
+
+nav {
+  background: #fff;
+  padding: 1rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  min-height: 10vh;
+}
+
+footer {
+  background: #fafafa;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+  min-height: 10vh;
 }
 
 input, button {
@@ -22,4 +50,9 @@ h1, h2 {
 
 .cell {
   text-align: right !important;
+}
+
+#container {
+  opacity: 1;
+  z-index: 1;
 }

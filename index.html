@@ -27,48 +27,56 @@
   </head>
 
   <body>
+    <head>
+      <nav>
+      </nav>
+    </head>
     <main class="container-fluid">
-      <section></section>
-      <section>
-        <h1 class="text-center">ALL AWESOME BOOKS</h1>
-        <h2 class="text-center">A website for all your book-lover needs!</h2>
-        <div class="table-responsive">
-          <table class="table table-striped border border-dark border-5">
-            <tbody id="bookList"></tbody>
-          </table>
-        </div>
-      </section>
-      <section class="row">
-        <div
-          class="col-2 offset-5 border-bottom border-dark border-2 mt-3 mb-4"
-        ></div>
-        <h2 class="col-8 offset-2 text-center">Add a new Book</h2>
-        <input
-          class="col-6 offset-3 mb-2"
-          type="text"
-          name="title2Add"
-          id="title"
-          placeholder="Title"
-          required
-        />
-        <input
-          class="col-6 offset-3 mb-2"
-          type="text"
-          name="author2Add"
-          id="author"
-          placeholder="Author"
-          required
-        />
-        <input
-          class="col-2 offset-7 mb-2 border-3"
-          type="submit"
-          value="Add"
-          onclick="Book.addBookMethod()"
-        />
-      </section>
-    </main>
-    <footer>nnnxcjkdfjjk</footer>
+      <div id="container">
+        <section>
+          <h1 class="text-center">ALL AWESOME BOOKS</h1>
+          <h2 class="text-center">A website for all your book-lover needs!</h2>
+          <div class="table-responsive">
+            <table class="table table-striped border border-dark border-5">
+              <tbody id="bookList"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="row">
+          <div
+            class="col-2 offset-5 border-bottom border-dark border-2 mt-3 mb-4"
+          ></div>
+          <h2 class="col-8 offset-2 text-center">Add a new Book</h2>
+          <input
+            class="col-6 offset-3 mb-2"
+            type="text"
+            name="title2Add"
+            id="title"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="col-6 offset-3 mb-2"
+            type="text"
+            name="author2Add"
+            id="author"
+            placeholder="Author"
+            required
+          />
+          <input
+            class="col-2 offset-7 mb-2 border-3"
+            type="submit"
+            value="Add"
+            onclick="Book.addBookMethod()"
+          />
+        </section>
+      </div>
 
+    </main>
+    <footer class="d-flex flex-column justify-content-center align-items-center p-3">
+      <span>Copyright &copy; 2021</span>
+      <span>Daniel Ufeli & Luis Abarca</span>
+    </footer>
     <script src="src/js/main.js"></script>
   </body>
 </html>
