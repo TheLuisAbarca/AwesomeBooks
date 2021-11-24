@@ -22,8 +22,8 @@ class Book {
 
   static addBookMethod() {
     if (
-      document.querySelector('#author').value === '' ||
-      document.querySelector('#title').value === ''
+      document.querySelector('#author').value === ''
+      || document.querySelector('#title').value === ''
     ) {
       alert('Please, fill both Author and Title.');
     } else {
@@ -78,7 +78,7 @@ class Book {
     } else {
       this.data.map((e, i) => {
         bookDisplay += `<tr class="text-muted">
-                        <th class="align-middle" scope="row">${i+1}</th>
+                        <th class="align-middle" scope="row">${i + 1}</th>
                           <td class="align-middle">"${this.data[i].title}" by ${this.data[i].author}</td>
                           <td class="cell">
                           <button class="btn border-3 text-white remove">

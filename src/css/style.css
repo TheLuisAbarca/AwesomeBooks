@@ -1,17 +1,20 @@
 body {
   background: white;
-  font-family: "Roboto";
-  /*font-weight: bold !important;*/
+  font-family: "Roboto", sans-serif;
+
+  /* font-weight: bold !important; */
   margin: 0;
   color: #fafafa;
-  /*overflow-y: hidden;*/
+
+  /* overflow-y: hidden; */
 }
 
 .bcontainer {
   position: relative;
   height: 80vh;
 }
-.bcontainer:before {
+
+.bcontainer::before {
   background: url("../images/smooth-bg.jpg") center / cover;
   content: "";
   position: absolute;
@@ -48,18 +51,18 @@ footer {
 
 input#addBtn,
 button {
-  /*border-color: black;*/
+  /* border-color: black; */
   background-color: #ec7242 !important;
 }
 
 input#addBtn:hover,
 button:hover {
-  background-color:#ec5242  !important;
+  background-color: #ec5242 !important;
 }
 
 h1,
 h2 {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 
