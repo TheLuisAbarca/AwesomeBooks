@@ -25,12 +25,12 @@ class Book {
       document.querySelector('#author').value === ''
       || document.querySelector('#title').value === ''
     ) {
-      alert('Please, fill both Author and Title.');
-    } else {
-      const title = document.querySelector('#title').value;
-      const author = document.querySelector('#author').value;
-      return this.addBook(title, author);
+      alert('Please, fill both Author and Title.'); // eslint-disable-line no-alert
+      return false;
     }
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    return this.addBook(title, author);
   }
 
   static addBook(title, author) {
