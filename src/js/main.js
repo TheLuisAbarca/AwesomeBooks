@@ -6,7 +6,7 @@ class Book {
   }
 
   static storeBooks(books) {
-    return loca   lStorage.setItem("books", books);
+    return localStorage.setItem("books", books);
   }
 
   static getBooks() {
