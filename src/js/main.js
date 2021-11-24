@@ -1,4 +1,4 @@
-const bookList = document.querySelector("#bookList");
+const bookList = document.querySelector('#bookList');
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -6,37 +6,39 @@ class Book {
   }
 
   static storeBooks(books) {
-    return localStorage.setItem("books", books);
+    return localStorage.setItem('books', books);
   }
 
   static getBooks() {
-    let books = JSON.parse(localStorage.getItem("books"));
-    return !books ? (books = []) : books;
+    let books = JSON.parse(localStorage.getItem('books'));
+    if (!books) {
+      books = [];
+      return books;
+    }
+    return books;
   }
 
   static data = this.getBooks();
 
   static addBookMethod() {
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
     return this.addBook(title, author);
   }
 
   static addBook(title, author) {
     this.data.push({
-      title: title,
-      author: author,
+      title,
+      author,
     });
     this.storeBooks(JSON.stringify(this.data));
-    document.querySelector("#author").value = "";
-    document.querySelector("#title").value = "";
+    document.querySelector('#author').value = '';
+    document.querySelector('#title').value = '';
     return this.displayBook();
   }
 
   static removeBook(index) {
-    this.data = this.data.filter((e, i) => {
-      return i !== index;
-    });
+    this.data = this.data.filter((e, i) => i !== index);
     this.storeBooks(JSON.stringify(this.data));
     return this.displayBook();
   }
@@ -63,9 +65,9 @@ class Book {
   }
 
   static displayBook() {
-    let bookDisplay = "";
+    let bookDisplay = '';
     if (this.data.length === 0) {
-      document.querySelector("#bookList").innerHTML = "";
+      document.querySelector('#bookList').innerHTML = '';
     } else {
       this.data.map((e, i) => {
         bookDisplay += `<h2>${this.data[i].title}</h2>
@@ -73,19 +75,20 @@ class Book {
                               <button class="select">Remove</button>
                               `;
 
-        document.querySelector("#bookList").innerHTML = bookDisplay;
+        document.querySelector('#bookList').innerHTML = bookDisplay;
 
-        const buttons = document.querySelectorAll("button");
+        const buttons = document.querySelectorAll('button');
         buttons.forEach((e, i) => {
           buttons[i].addEventListener(
-            "click",
+            'click',
             (event) => {
               Book.removeBook(Book.removeBook(this.data.indexOf(this.data[i])));
               event.preventDefault();
             },
-            false
+            false,
           );
         });
+        return this.data;
       });
     }
   }
