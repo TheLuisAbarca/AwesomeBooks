@@ -67,13 +67,15 @@ class Book {
   static displayBook() {
     let bookDisplay = '';
     if (this.data.length === 0) {
-      document.querySelector('#bookList').innerHTML = '';
+      document.querySelector('#bookList').innerHTML = '<p class="text-center mt-3">No Record Found</p>';
     } else {
       this.data.map((e, i) => {
         bookDisplay += `<tr>
                         <th scope="row">${i+1}</th>
-                          <td >"${this.data[i].title}" by ${this.data[i].author}</td>
-                          <td class="text-right align-middle"><button class="select">Remove</button></td>
+                          <td class="align-middle">"${this.data[i].title}" by ${this.data[i].author}</td>
+                          <td class="text-right cell">
+                          <button class="border-3">Remove</button>
+                          </td>
                         </tr>`;
 
         document.querySelector('#bookList').innerHTML = bookDisplay;
