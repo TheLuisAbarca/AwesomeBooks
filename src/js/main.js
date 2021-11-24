@@ -21,9 +21,16 @@ class Book {
   static data = this.getBooks();
 
   static addBookMethod() {
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    return this.addBook(title, author);
+    if (
+      document.querySelector('#author').value === '' ||
+      document.querySelector('#title').value === ''
+    ) {
+      alert('Please, fill both Author and Title.');
+    } else {
+      const title = document.querySelector('#title').value;
+      const author = document.querySelector('#author').value;
+      return this.addBook(title, author);
+    }
   }
 
   static addBook(title, author) {
@@ -70,17 +77,18 @@ class Book {
       document.querySelector('#bookList').innerHTML = '<p class="text-center mt-3">No Record Found</p>';
     } else {
       this.data.map((e, i) => {
-        bookDisplay += `<tr>
-                        <th scope="row">${i+1}</th>
+        bookDisplay += `<tr class="text-muted">
+                        <th class="align-middle" scope="row">${i+1}</th>
                           <td class="align-middle">"${this.data[i].title}" by ${this.data[i].author}</td>
-                          <td class="text-right cell">
-                          <button class="border-3">Remove</button>
+                          <td class="cell">
+                          <button class="btn border-3 text-white remove">
+                          <i class="fas fa-trash"> Remove</i></button>
                           </td>
                         </tr>`;
 
         document.querySelector('#bookList').innerHTML = bookDisplay;
 
-        const buttons = document.querySelectorAll('button');
+        const buttons = document.querySelectorAll('button.remove');
         buttons.forEach((e, i) => {
           buttons[i].addEventListener(
             'click',

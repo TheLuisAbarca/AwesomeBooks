@@ -1,15 +1,18 @@
 body {
   background: white;
   font-family: "Roboto";
+  /*font-weight: bold !important;*/
   margin: 0;
+  color: #fafafa;
+  /*overflow-y: hidden;*/
 }
 
 .bcontainer {
   position: relative;
-  height: 100vh;
+  height: 80vh;
 }
 .bcontainer:before {
-  background: url("../images/banner.webp") center / cover;
+  background: url("../images/smooth-bg.jpg") center / cover;
   content: "";
   position: absolute;
   left: 0;
@@ -43,14 +46,21 @@ footer {
   min-height: 10vh;
 }
 
-input,
+input#addBtn,
 button {
-  border-color: black;
+  /*border-color: black;*/
+  background-color: #ec7242 !important;
+}
+
+input#addBtn:hover,
+button:hover {
+  background-color:#ec5242  !important;
 }
 
 h1,
 h2 {
   font-family: "Poppins";
+  font-weight: bold;
 }
 
 .cell {
