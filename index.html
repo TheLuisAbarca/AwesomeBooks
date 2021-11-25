@@ -1,38 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AwesomeBooks</title>
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--link rel="stylesheet" href="src/css/font-awesome.min.css" /-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/bootstrap.min.css" />
+    <script src="src/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <title>AwesomeBooks</title>
-  <meta name="author" content="">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="src/css/style.css" rel="stylesheet" />
+  </head>
 
-  <link href="src/css/style.css" rel="stylesheet">
-</head>
+  <body>
+    <header>
+      <nav>
+      </nav>
+    </header>
+    <main class="container">
+      <div id="container" class="bcontainer">
+        <section class="row m-2">
+          <h1 class="text-center">ALL AWESOME BOOKS</h1>
+          <h2 class="text-center">A website for all your book-lover needs!</h2>
+          <div class="table-responsive">
+            <table class="table table-striped border border-dark border-5">
+              <tbody id="bookList" class="text-muted"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="row">
+          <div
+            class="col-2 offset-5 border-bottom border-white border-2 mt-3 mb-4">
+          </div>
+          <h2 class="col-8 offset-2 text-center">Add a new Book</h2>
+          <input
+            class="col-6 offset-3 mb-2"
+            type="text"
+            name="title2Add"
+            id="title"
+            placeholder="Title"
+            required
+          />
+          <input
+            class="col-6 offset-3 mb-2"
+            type="text"
+            name="author2Add"
+            id="author"
+            placeholder="Author"
+            required
+          />
+          <div class="col-2 offset-7 col-md-2 offset-md-5 mb-2">
+            <button
+            id="addBtn"
+            class="btn border-3 text-white"
+            type="submit"
+            value="Add"
+            onclick="Book.addBookMethod()">
+              <i class="fas fa-plus-circle">Add</i>
+            </button>
+          </div>
 
-<body>
-  <main>
-    <section>
+        </section>
+      </div>
 
-    </section>
-    <section>
-      <h1>AWESOME BOOKS</h1>
-      <h2>A website for all your book-lover needs!</h2>
-      <ul id="bookList"></ul>
-    </section>
-    <section>
-        <input type="text" name="title2Add" id="title" placeholder="Title" required />
-        <input type="text" name="author2Add" id="author" placeholder="Author" required />
-        <input type="submit" value="Add" onclick="Book.addBookMethod()" />
-    </section>
-  </main>
-  <footer>
-
-  </footer>
-  <p></p>
-
-  <script src="src/js/main.js"></script>
-</body>
-
+    </main>
+    <footer class="d-flex flex-column justify-content-center align-items-center p-3">
+      <span>Copyright &copy; 2021</span>
+      <span>Daniel Ufeli & Luis Abarca</span>
+    </footer>
+    <script src="src/js/main.js"></script>
+  </body>
 </html>

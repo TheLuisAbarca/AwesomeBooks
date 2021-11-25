@@ -21,6 +21,13 @@ class Book {
   static data = this.getBooks();
 
   static addBookMethod() {
+    if (
+      document.querySelector('#author').value === ''
+      || document.querySelector('#title').value === ''
+    ) {
+      alert('Please, fill both Author and Title.'); // eslint-disable-line no-alert
+      return false;
+    }
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     return this.addBook(title, author);
@@ -67,17 +74,21 @@ class Book {
   static displayBook() {
     let bookDisplay = '';
     if (this.data.length === 0) {
-      document.querySelector('#bookList').innerHTML = '';
+      document.querySelector('#bookList').innerHTML = '<p class="text-center mt-3">No Record Found</p>';
     } else {
       this.data.map((e, i) => {
-        bookDisplay += `<h2>${this.data[i].title}</h2>
-                              <p>${this.data[i].author}</p>
-                              <button class="select">Remove</button>
-                              `;
+        bookDisplay += `<tr class="text-muted">
+                        <th class="align-middle" scope="row">${i + 1}</th>
+                          <td class="align-middle">"${this.data[i].title}" by ${this.data[i].author}</td>
+                          <td class="cell">
+                          <button class="btn border-3 text-white remove">
+                          <i class="fas fa-trash"> Remove</i></button>
+                          </td>
+                        </tr>`;
 
         document.querySelector('#bookList').innerHTML = bookDisplay;
 
-        const buttons = document.querySelectorAll('button');
+        const buttons = document.querySelectorAll('button.remove');
         buttons.forEach((e, i) => {
           buttons[i].addEventListener(
             'click',
