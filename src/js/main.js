@@ -1,3 +1,9 @@
+const btnBars = document.getElementById('barsBtn');
+const mobMenu = document.getElementsByClassName('mobMenu');
+const closeIcon = document.getElementsByClassName('closeIcon');
+const listEl = document.querySelectorAll('.mobMenu > ul > li');
+const bodyel = document.querySelector('body');
+
 const bookList = document.querySelector('#bookList');
 const currentTime = document.querySelector('.currentTime');
 const { DateTime } = luxon;
@@ -20,6 +26,25 @@ function getDateTime() {
     modCurrDT[modCurrDT.length - 1] = modCurrDT[modCurrDT.length - 1].toLowerCase();
     currentTime.innerHTML = modCurrDT.join(' ');
   }, 1000);
+}
+
+function toggleMenu() {
+  btnBars.addEventListener('click', () => {
+    mobMenu[0].style.display = 'flex';
+    bodyel.style.overflow = 'hidden';
+  });
+  
+  closeIcon[0].addEventListener('click', () => {
+    mobMenu[0].style.display = 'none';
+    bodyel.style.overflow = 'auto';
+  });
+  
+  listEl.forEach((el) => {
+    el.addEventListener('click', () => {
+      mobMenu[0].style.display = 'none';
+      bodyel.style.overflow = 'auto';
+    });
+  });
 }
 class Book {
   constructor(title, author) {
@@ -126,6 +151,6 @@ class Book {
     }
   }
 }
-
+toggleMenu();
 getDateTime();
 Book.displayBook();

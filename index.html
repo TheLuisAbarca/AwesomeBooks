@@ -31,15 +31,41 @@
   </head>
 
   <body>
+    <div class="mobMenu section1">
+      <a id="closeIcon" class="d-flex justify-content-end align-items"><i class="fas fa-times fa-2x closeIcon"></i></a>
+      <ul>
+        <li>
+          <a href="index.html" class="text-cocogoose">List</a>
+          <i class="fas fa-angle-right fa-2x"></i>
+        </li>
+        <li>
+          <a href="about.html" class="text-cocogoose">Add New</a>
+          <i class="fas fa-angle-right fa-2x"></i>
+        </li>
+        <li>
+          <a href="index.html#program" class="text-cocogoose">Contact</a>
+          <i class="fas fa-angle-right fa-2x"></i>
+        </li>
+      </ul>
+    </div>
     <header>
       <nav class="row">
-        <div class="col-2">
+        <div class="col-2 d-flex justify-content-center align-items-center">
           <a href="index.html">
             <img class="imgLogo" src="src/images/favicon.png" alt="AwesomeBooks Logo" />
           </a>
         </div>
-        <div class="col-10">
-          <ul class="nav justify-content-end">
+        <div class="d-md-none col-2 offset-8 d-flex justify-content-center align-items-center">
+          <button
+          class="btn"
+          id="barsBtn"
+          type="button"
+          >
+            <i class="fas fa-bars fa-2x text-white"></i>
+          </button>
+        </div>
+        <div class="d-none col-md-10 d-md-flex justify-content-md-end align-items-md-center">
+          <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">List</a>
             </li>
@@ -54,19 +80,19 @@
     </header>
     <main class="container">
       <div id="container" class="bcontainer">
-        <section class="row m-2">
-          <div class="mt-5 mb-5 w-100 d-flex justify-content-end">
-            <p class="currentTime ml-auto mr-4 p-4 pb-0"></p>
-          </div>
+        <div class="mb-5 w-100 d-flex justify-content-end">
+          <p class="currentTime ml-auto mr-4 p-4 pb-0"></p>
+        </div>
+        <section id="listSection" class="row m-2">
           <h1 class="text-center">ALL AWESOME BOOKS</h1>
-          <h2 class="text-center">A website for all your book-lover needs!</h2>
+          <h2 class="text-center mt-3 mb-5">A website for all your book-lover needs!</h2>
           <div class="table-responsive">
             <table class="table table-striped border border-dark border-5">
               <tbody id="bookList" class="text-muted"></tbody>
             </table>
           </div>
         </section>
-        <section class="row">
+        <section id="addSection" class="row">
           <div
             class="col-2 offset-5 border-bottom border-white border-2 mt-3 mb-4">
           </div>
@@ -97,6 +123,9 @@
               <i class="fas fa-plus-circle">Add</i>
             </button>
           </div>
+
+        </section>
+        <section id="contactSection">
 
         </section>
       </div>
