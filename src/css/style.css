@@ -5,6 +5,7 @@ body {
   /* font-weight: bold !important; */
   margin: 0;
   color: #fafafa;
+
   /* overflow-y: hidden; */
 }
 
@@ -89,13 +90,6 @@ div.table-responsive {
   justify-content: space-between;
 }
 
-.mobMenu > ul > li > a:hover,
-.mobMenu > ul > li > i:hover,
-.mobMenu > ul > li:hover,
-div > ul > li > a.nav-link.text-modal-links:hover {
-  color: #ec5242 !important;
-}
-
 .mobMenu > a {
   align-items: center;
   align-self: flex-end;
@@ -109,9 +103,17 @@ div > ul > li > a.nav-link.text-modal-links:hover {
   text-transform: uppercase;
 }
 
+.mobMenu > ul > li > a:hover,
+.mobMenu > ul > li > i:hover,
+.mobMenu > ul > li:hover,
+div > ul > li > a.nav-link.text-modal-links:hover {
+  color: #ec5242 !important;
+}
+
 .section1 {
   background-image: url("../images/bg-modal.webp");
-  /*background-color: #d3d3d3;*/
+
+  /* background-color: #d3d3d3; */
   background-blend-mode: lighten;
   background-size: cover;
   position: relative;
@@ -133,7 +135,7 @@ div > ul > li > a.nav-link.text-modal-links:hover {
 }
 
 .text-modal-links {
-  /*font-family: "Poppins", sans-serif;*/
+  /* font-family: "Poppins", sans-serif; */
   font-weight: bolder;
   font-size: 2.5rem;
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -178,7 +180,7 @@ div > ul > li > a.nav-link.text-modal-links:hover {
   }
 
   .text-modal-links {
-    /*font-family: "Poppins", sans-serif;*/
+    /* font-family: "Poppins", sans-serif; */
     font-weight: bold;
     font-size: 1.5rem;
     color: #ec7242;
