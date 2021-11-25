@@ -1,4 +1,26 @@
 const bookList = document.querySelector('#bookList');
+const currentTime = document.querySelector('.currentTime');
+const { DateTime } = luxon;
+
+function getNumSuf(value) {
+  const numSuf = ['th', 'st', 'nd', 'rd'];
+  const lastDigit = value % 10;
+  return numSuf[lastDigit] || numSuf[0];
+}
+
+function getDateTime() {
+  setInterval(() => {
+    const currDT = DateTime.local();
+    currDT.loc.intl = 'en-US';
+    const modCurrDT = currDT
+      .toLocaleString({ ...DateTime.DATETIME_MED_WITH_SECONDS, month: 'long' })
+      .split(' ');
+    const dateNum = parseInt(modCurrDT[1], 10);
+    modCurrDT[1] = dateNum + getNumSuf(dateNum);
+    modCurrDT[modCurrDT.length - 1] = modCurrDT[modCurrDT.length - 1].toLowerCase();
+    currentTime.innerHTML = modCurrDT.join(' ');
+  }, 1000);
+}
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -104,4 +126,6 @@ class Book {
     }
   }
 }
+
+getDateTime();
 Book.displayBook();
