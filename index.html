@@ -31,22 +31,24 @@
   </head>
 
   <body>
-    <div class="mobMenu section1">
-      <a id="closeIcon" class="d-flex justify-content-end align-items"><i class="fas fa-times fa-2x closeIcon"></i></a>
-      <ul>
-        <li>
-          <a href="#" onclick="Book.listSection()" class="text-cocogoose">List</a>
-          <i class="fas fa-angle-right fa-2x"></i>
-        </li>
-        <li>
-          <a href="#" onclick="Book.bookForm()" class="text-cocogoose">Add New</a>
-          <i class="fas fa-angle-right fa-2x"></i>
-        </li>
-        <li>
-          <a href="#" onclick="Book.contactSection()" class="text-cocogoose">Contact</a>
-          <i class="fas fa-angle-right fa-2x"></i>
-        </li>
-      </ul>
+    <div class="modalFrame">
+      <div class="m-3 border border-3 border-warning mobMenu section1">
+        <a id="closeIcon" class="d-flex justify-content-end align-items"><i class="fas fa-times fa-2x closeIcon"></i></a>
+        <ul>
+          <li>
+            <a href="#" onclick="Book.listSection()" class="text-modal-links">List</a>
+            <i class="fas fa-angle-right fa-2x"></i>
+          </li>
+          <li>
+            <a href="#" onclick="Book.bookForm()" class="text-modal-links">Add New</a>
+            <i class="fas fa-angle-right fa-2x "></i>
+          </li>
+          <li>
+            <a href="#" onclick="Book.contactSection()" class="text-modal-links">Contact</a>
+            <i class="fas fa-angle-right fa-2x"></i>
+          </li>
+        </ul>
+      </div>
     </div>
     <header>
       <nav class="row">
@@ -66,14 +68,14 @@
         </div>
         <div class="d-none col-md-10 d-md-flex justify-content-md-end align-items-md-center">
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="Book.listSection()">List</a>
+            <li id="" class="nav-item">
+              <a class="nav-link text-modal-links" href="#" onclick="Book.listSection()">List</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="Book.bookForm()">Add New</a>
+              <a class="nav-link text-modal-links" href="#" onclick="Book.bookForm()">Add New</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="Book.contactSection()">Contact</a>
+              <a class="nav-link text-modal-links" href="#" onclick="Book.contactSection()">Contact</a>
             </li>
           </ul>
       </nav>
@@ -96,9 +98,9 @@
           <div
             class="col-2 offset-5 border-bottom border-white border-2 mt-3 mb-4">
           </div>
-          <h2 class="col-8 offset-2 text-center">Add a new Book</h2>
+          <h2 class="col-8 offset-2 mt-5 mb-5 text-center">Add a new Book</h2>
           <input
-            class="col-6 offset-3 mb-2"
+            class="col-6 offset-3 mt-5 mb-2"
             type="text"
             name="title2Add"
             id="title"
@@ -113,23 +115,23 @@
             placeholder="Author"
             required
           />
-          <div class="col-2 offset-7 col-md-2 offset-md-5 mb-2">
+          <div class="col-5 offset-5 col-md-2 offset-md-5 mt-4 d-flex justify-content-center">
             <button
             id="addBtn"
-            class="btn border-3 text-white"
+            class="btn border-3 text-white w-80"
             type="submit"
             value="Add"
             onclick="Book.addBookMethod()">
-              <i class="fas fa-plus-circle">Add</i>
+              <i class="fas fa-plus-circle"> Add</i>
             </button>
           </div>
 
         </section>
         <section id="contactSection">
           <div class="container">
-            <div class="row">
-              <h1 class="text-center">Contact Information</h1>
-              <p>Do you have any question or you just want to say "Hello"?
+            <div class="row justify-content-center align-items-center">
+              <h1 class="text-center mb-3">Contact Information</h1>
+              <p class="mb-4">Do you have any question or you just want to say "Hello"?
                 <br>
                 You can reach out to us!
               </p>
