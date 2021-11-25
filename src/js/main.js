@@ -161,30 +161,29 @@ class Book {
 
   static addSection(name) {
     let section = document.querySelector(`#${name}`);
-    return (section.style.display = "block");
+    return section.style.display = "block";
+  }
+
+  static removeSection(name) {
+    let section = document.querySelector(`#${name}`);
+    return section.style.display = "none";
   }
 
   static bookForm() {
-    let contactSection = document.querySelector("#contactSection");
-    let listSection = document.querySelector("#listSection");
-    contactSection.style.display = "none";
-    listSection.style.display = "none";
+    this.removeSection("contactSection");
+    this.removeSection("listSection");
     return this.addSection("bookForm");
   }
 
   static listSection() {
-    let bookForm = document.getElementById("bookForm");
-    let contactSection = document.querySelector("#contactSection");
-    bookForm.style.display = "none";
-    contactSection.style.display = "none";
+    this.removeSection("bookForm");
+    this.removeSection("contactSection");
     return this.addSection("listSection");
   }
 
   static contactSection() {
-    let listSection = document.querySelector("#listSection");
-    let bookForm = document.getElementById("bookForm");
-    listSection.style.display = "none";
-    bookForm.style.display = "none";
+    this.removeSection("listSection");
+    this.removeSection("bookForm");
     return this.addSection("contactSection");
   }
 }
