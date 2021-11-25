@@ -11,7 +11,7 @@ body {
 
 .bcontainer {
   position: relative;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 .bcontainer::before {
@@ -31,7 +31,7 @@ table {
 }
 
 nav {
-  background: #fff;
+  background-color: #fafafa;
   padding: 1rem;
   top: 0;
   left: 0;
@@ -66,11 +66,125 @@ h2 {
   font-weight: bold;
 }
 
+p {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: bold !important;
+}
+
+div.table-responsive {
+  min-height: 120px;
+  height: 420px;
+}
+
+.mobMenu {
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+}
+
+.mobMenu > ul > li {
+  display: flex;
+  margin-top: 40px;
+  margin-right: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobMenu > a {
+  align-items: center;
+  align-self: flex-end;
+}
+
+.mobMenu > ul > li > a,
+.mobMenu > ul > li > i {
+  font-size: 24px;
+  color: #ec7242;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mobMenu > ul > li > a:hover,
+.mobMenu > ul > li > i:hover,
+.mobMenu > ul > li:hover,
+div > ul > li > a.nav-link.text-modal-links:hover {
+  color: #ec5242 !important;
+}
+
+.section1 {
+  background-image: url("../images/bg-modal.webp");
+
+  /* background-color: #d3d3d3; */
+  background-blend-mode: lighten;
+  background-size: cover;
+  position: relative;
+}
+
+.section1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.modalFrame {
+  background-color: #d3d3d3;
+}
+
+.text-modal-links {
+  /* font-family: "Poppins", sans-serif; */
+  font-weight: bolder;
+  font-size: 2.5rem;
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+#closeIcon {
+  text-decoration: none !important;
+}
+
+.closeIcon {
+  margin-top: 16px;
+  margin-right: 28px;
+  color: #ec7242;
+  cursor: pointer;
+}
+
 .cell {
   text-align: right !important;
+}
+
+.imgLogo {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
 }
 
 #container {
   opacity: 1;
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .shown-mobile {
+    display: none;
+  }
+
+  .text-modal-links {
+    /* font-family: "Poppins", sans-serif; */
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ec7242;
+    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+  }
 }

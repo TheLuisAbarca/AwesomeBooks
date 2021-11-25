@@ -1,4 +1,14 @@
+const btnBars = document.getElementById('barsBtn');
+const mobMenu = document.getElementsByClassName('mobMenu');
+const closeIcon = document.getElementsByClassName('closeIcon');
+const listEl = document.querySelectorAll('.mobMenu > ul > li');
+const bodyel = document.querySelector('body');
+
 const bookList = document.querySelector('#bookList');
+const currentTime = document.querySelector('.currentTime');
+/* eslint-disable */
+const { DateTime } = luxon;
+/* eslint-enable */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -72,6 +82,7 @@ class Book {
   }
 
   static displayBook() {
+    this.listSection();
     let bookDisplay = '';
     if (this.data.length === 0) {
       document.querySelector('#bookList').innerHTML = '<p class="text-center mt-3">No Record Found</p>';
@@ -79,7 +90,9 @@ class Book {
       this.data.map((e, i) => {
         bookDisplay += `<tr class="text-muted">
                         <th class="align-middle" scope="row">${i + 1}</th>
-                          <td class="align-middle">"${this.data[i].title}" by ${this.data[i].author}</td>
+                          <td class="align-middle">"${this.data[i].title}" by ${
+  this.data[i].author
+}</td>
                           <td class="cell">
                           <button class="btn border-3 text-white remove">
                           <i class="fas fa-trash"> Remove</i></button>
@@ -103,5 +116,79 @@ class Book {
       });
     }
   }
+
+  static getNumSuf(value) {
+    const numSuf = ['th', 'st', 'nd', 'rd'];
+    const lastDigit = value % 10;
+    return numSuf[lastDigit] || numSuf[0];
+  }
+
+  static getDateTime() {
+    setInterval(() => {
+      const currDT = DateTime.local();
+      currDT.loc.intl = 'en-US';
+      const modCurrDT = currDT
+        .toLocaleString({
+          ...DateTime.DATETIME_MED_WITH_SECONDS,
+          month: 'long',
+        })
+        .split(' ');
+      const dateNum = parseInt(modCurrDT[1], 10);
+      modCurrDT[1] = dateNum + this.getNumSuf(dateNum);
+      modCurrDT[modCurrDT.length - 1] = modCurrDT[modCurrDT.length - 1].toLowerCase();
+      currentTime.innerHTML = modCurrDT.join(' ');
+    }, 1000);
+  }
+
+  static toggleMenu() {
+    btnBars.addEventListener('click', () => {
+      mobMenu[0].style.display = 'flex';
+      bodyel.style.overflow = 'hidden';
+    });
+
+    closeIcon[0].addEventListener('click', () => {
+      mobMenu[0].style.display = 'none';
+      bodyel.style.overflow = 'auto';
+    });
+
+    listEl.forEach((el) => {
+      el.addEventListener('click', () => {
+        mobMenu[0].style.display = 'none';
+        bodyel.style.overflow = 'auto';
+      });
+    });
+  }
+
+  static addSection(name) {
+    const section = document.querySelector(`#${name}`);
+    section.style.display = 'block';
+    return true;
+  }
+
+  static removeSection(name) {
+    const section = document.querySelector(`#${name}`);
+    section.style.display = 'none';
+    return true;
+  }
+
+  static bookForm() {
+    this.removeSection('contactSection');
+    this.removeSection('listSection');
+    return this.addSection('bookForm');
+  }
+
+  static listSection() {
+    this.removeSection('bookForm');
+    this.removeSection('contactSection');
+    return this.addSection('listSection');
+  }
+
+  static contactSection() {
+    this.removeSection('listSection');
+    this.removeSection('bookForm');
+    return this.addSection('contactSection');
+  }
 }
+Book.toggleMenu();
+Book.getDateTime();
 Book.displayBook();

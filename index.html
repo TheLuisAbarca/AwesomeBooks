@@ -25,32 +25,83 @@
       rel="stylesheet"
     />
 
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon.png">
+
     <link href="src/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
+    <div class="modalFrame">
+      <div class="m-3 border border-3 border-warning mobMenu section1">
+        <a id="closeIcon" class="d-flex justify-content-end align-items"><i class="fas fa-times fa-2x closeIcon"></i></a>
+        <ul>
+          <li>
+            <a href="#" onclick="Book.listSection()" class="text-modal-links">List</a>
+            <i class="fas fa-angle-right fa-2x"></i>
+          </li>
+          <li>
+            <a href="#" onclick="Book.bookForm()" class="text-modal-links">Add New</a>
+            <i class="fas fa-angle-right fa-2x "></i>
+          </li>
+          <li>
+            <a href="#" onclick="Book.contactSection()" class="text-modal-links">Contact</a>
+            <i class="fas fa-angle-right fa-2x"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
     <header>
-      <nav>
+      <nav class="row">
+        <div class="col-2 d-flex justify-content-center align-items-center">
+          <a href="index.html">
+            <img class="imgLogo" src="src/images/favicon.png" alt="AwesomeBooks Logo" />
+          </a>
+        </div>
+        <div class="d-md-none col-2 offset-8 d-flex justify-content-center align-items-center">
+          <button
+          class="btn"
+          id="barsBtn"
+          type="button"
+          >
+            <i class="fas fa-bars fa-2x text-white"></i>
+          </button>
+        </div>
+        <div class="d-none col-md-10 d-md-flex justify-content-md-end align-items-md-center">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link text-modal-links" href="#" onclick="Book.listSection()">List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-modal-links" href="#" onclick="Book.bookForm()">Add New</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-modal-links" href="#" onclick="Book.contactSection()">Contact</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
     <main class="container">
       <div id="container" class="bcontainer">
-        <section class="row m-2">
+        <div class="mb-5 w-100 d-flex justify-content-end">
+          <p class="currentTime ml-auto mr-4 p-4 pb-0"></p>
+        </div>
+        <section id="listSection" class="row m-2">
           <h1 class="text-center">ALL AWESOME BOOKS</h1>
-          <h2 class="text-center">A website for all your book-lover needs!</h2>
+          <h2 class="text-center mt-3 mb-5">A website for all your book-lover needs!</h2>
           <div class="table-responsive">
             <table class="table table-striped border border-dark border-5">
               <tbody id="bookList" class="text-muted"></tbody>
             </table>
           </div>
         </section>
-        <section class="row">
+        <section id="bookForm" class="row">
           <div
             class="col-2 offset-5 border-bottom border-white border-2 mt-3 mb-4">
           </div>
-          <h2 class="col-8 offset-2 text-center">Add a new Book</h2>
+          <h2 class="col-8 offset-2 mt-5 mb-5 text-center">Add a new Book</h2>
           <input
-            class="col-6 offset-3 mb-2"
+            class="col-6 offset-3 mt-5 mb-2"
             type="text"
             name="title2Add"
             id="title"
@@ -65,17 +116,36 @@
             placeholder="Author"
             required
           />
-          <div class="col-2 offset-7 col-md-2 offset-md-5 mb-2">
+          <div class="col-5 offset-5 col-md-2 offset-md-5 mt-4 d-flex justify-content-center">
             <button
             id="addBtn"
-            class="btn border-3 text-white"
+            class="btn border-3 text-white w-80"
             type="submit"
             value="Add"
             onclick="Book.addBookMethod()">
-              <i class="fas fa-plus-circle">Add</i>
+              <i class="fas fa-plus-circle"> Add</i>
             </button>
           </div>
 
+        </section>
+        <section id="contactSection">
+          <div class="container">
+            <div class="row justify-content-center align-items-center">
+              <h1 class="text-center mb-3">Contact Information</h1>
+              <p class="mb-4">Do you have any question or you just want to say "Hello"?
+                <br>
+                You can reach out to us!
+              </p>
+              <div>
+                <ul>
+                  <li>Our email mail@mail.com</li>
+                  <li>Our phone number: 0043586534422</li>
+                  <li>Our Address: Streename 22, 84503 City, Country</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
         </section>
       </div>
 
@@ -84,6 +154,7 @@
       <span>Copyright &copy; 2021</span>
       <span>Daniel Ufeli & Luis Abarca</span>
     </footer>
-    <script src="src/js/main.js"></script>
+    <script type="text/javascript" src="src/js/luxon.js"></script>
+    <script type="text/javascript" src="src/js/main.js"></script>
   </body>
 </html>
