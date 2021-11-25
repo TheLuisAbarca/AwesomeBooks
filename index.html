@@ -35,15 +35,15 @@
       <a id="closeIcon" class="d-flex justify-content-end align-items"><i class="fas fa-times fa-2x closeIcon"></i></a>
       <ul>
         <li>
-          <a href="index.html" class="text-cocogoose">List</a>
+          <a href="#" onclick="Book.listSection()" class="text-cocogoose">List</a>
           <i class="fas fa-angle-right fa-2x"></i>
         </li>
         <li>
-          <a href="about.html" class="text-cocogoose">Add New</a>
+          <a href="#" onclick="Book.bookForm()" class="text-cocogoose">Add New</a>
           <i class="fas fa-angle-right fa-2x"></i>
         </li>
         <li>
-          <a href="index.html#program" class="text-cocogoose">Contact</a>
+          <a href="#" onclick="Book.contactSection()" class="text-cocogoose">Contact</a>
           <i class="fas fa-angle-right fa-2x"></i>
         </li>
       </ul>
@@ -67,13 +67,13 @@
         <div class="d-none col-md-10 d-md-flex justify-content-md-end align-items-md-center">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">List</a>
+              <a class="nav-link" href="#" onclick="Book.listSection()">List</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Add New</a>
+              <a class="nav-link" href="#" onclick="Book.bookForm()">Add New</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="#" onclick="Book.contactSection()">Contact</a>
             </li>
           </ul>
       </nav>
@@ -92,7 +92,7 @@
             </table>
           </div>
         </section>
-        <section id="addSection" class="row">
+        <section id="bookForm" class="row">
           <div
             class="col-2 offset-5 border-bottom border-white border-2 mt-3 mb-4">
           </div>
@@ -126,7 +126,23 @@
 
         </section>
         <section id="contactSection">
-
+          <div class="container">
+            <div class="row">
+              <h1 class="text-center">Contact Information</h1>
+              <p>Do you have any question or you just want to say "Hello"?
+                <br>
+                You can reach out to us!
+              </p>
+              <div>
+                <ul>
+                  <li>Our email mail@mail.com</li>
+                  <li>Our phone number: 0043586534422</li>
+                  <li>Our Address: Streename 22, 84503 City, Country</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
         </section>
       </div>
 
