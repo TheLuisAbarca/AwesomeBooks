@@ -79,7 +79,7 @@ As this project counts with html, css and javascript, you will need to test the 
 
 👤 **Daniel Ufeli**
 
-- GitHub: [@githubhandle](https://github.com/danielufeli)
+- GitHub: [@danielufeli](https://github.com/danielufeli)
 
 ## 🤝 Contributing
 
